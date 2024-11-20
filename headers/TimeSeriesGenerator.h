@@ -12,7 +12,8 @@ class TimeSeriesGenerator {
     public:
         TimeSeriesGenerator();
         TimeSeriesGenerator(int _seed);
-        ~TimeSeriesGenerator() = default;
+
+        virtual ~TimeSeriesGenerator() = default;
 
         void setSeed(int _seed);
         int getSeed() const;
@@ -20,7 +21,7 @@ class TimeSeriesGenerator {
         virtual std::vector<double> generateTimeSeries(int size) const = 0;
         static void printTimeSeries(std::vector<double> timeSerie);
 
-    private:
+    protected:
         int seed;
 
 };
