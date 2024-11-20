@@ -5,4 +5,6 @@ set(CMAKE_CXX_STANDARD 20)
 
 add_executable(TdFawazSerieTemp main.cpp
         src/TimeSeriesGenerator.cpp
-        headers/TimeSeriesGenerator.h)
+        headers/TimeSeriesGenerator.h
+        src/GaussianGenerator.cpp
+        headers/GaussianGenerator.h)
