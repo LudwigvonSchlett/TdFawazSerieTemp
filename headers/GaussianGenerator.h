@@ -13,7 +13,7 @@ class GaussianGenerator: public TimeSeriesGenerator {
     public:
         GaussianGenerator();
         GaussianGenerator(double _mean, double _std);
-        GaussianGenerator(int _seed, double _mean, double _std);
+        GaussianGenerator(double _mean, double _std, int _seed);
 
         ~GaussianGenerator() = default;
 
@@ -22,10 +22,10 @@ class GaussianGenerator: public TimeSeriesGenerator {
         void setStd(double _std);
         double getStd() const;
 
-        double boxMuller();
         std::vector<double> generateTimeSeries(int size) const override;
 
     private:
+
         double mean;
         double std;
 };

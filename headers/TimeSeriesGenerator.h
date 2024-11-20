@@ -4,6 +4,7 @@
 
 #ifndef TIMESERIESGENERATOR_H
 #define TIMESERIESGENERATOR_H
+#include <random>
 #include <vector>
 
 
@@ -19,10 +20,13 @@ class TimeSeriesGenerator {
         int getSeed() const;
 
         virtual std::vector<double> generateTimeSeries(int size) const = 0;
-        static void printTimeSeries(std::vector<double> timeSerie);
+        static void printTimeSeries(const std::vector<double>& timeSeries);
 
     protected:
         int seed;
+
+        mutable std::mt19937 rng;
+
 
 };
 

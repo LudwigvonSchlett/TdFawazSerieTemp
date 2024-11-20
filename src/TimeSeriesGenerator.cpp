@@ -13,12 +13,13 @@ TimeSeriesGenerator::TimeSeriesGenerator():
 }
 
 TimeSeriesGenerator::TimeSeriesGenerator(int _seed):
-    seed(_seed)
+    seed(_seed), rng(_seed)
 {
 
 }
 
 void TimeSeriesGenerator::setSeed(int _seed) {
+    rng.seed(_seed);
     seed = _seed;
 }
 
@@ -26,9 +27,9 @@ int TimeSeriesGenerator::getSeed() const {
     return seed;
 }
 
-void TimeSeriesGenerator::printTimeSeries(std::vector<double> timeSerie) {
+void TimeSeriesGenerator::printTimeSeries(const std::vector<double>& timeSeries) {
 
-    for (double value : timeSerie) {
+    for (double value : timeSeries) {
 
         std::cout << value << " ";
 
