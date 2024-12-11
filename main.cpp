@@ -7,6 +7,7 @@
 #include "headers/StepGenerator.h"
 #include "headers/SinWaveGenerator.h"
 #include "headers/TimesSeriesDataset.h"
+#include "headers/KNN.h"
 
 
 int main() {
@@ -91,7 +92,12 @@ int main() {
     testData.addTimeSeries(series8);
     testData.addTimeSeries(series9);
 
-
+    KNN knn_1(1,"dtw");
+    std::cout << knn_1.evaluate(trainData,testData,ground_truth) << std::endl;
+    KNN knn_2(2,"euclidean_distance");
+    std::cout << knn_2.evaluate(trainData,testData,ground_truth) << std::endl;
+    KNN knn_3(3,"euclidean_distance");
+    std::cout << knn_3.evaluate(trainData,testData,ground_truth) << std::endl;
 
     return 0;
 }

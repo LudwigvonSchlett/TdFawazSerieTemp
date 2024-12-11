@@ -85,6 +85,10 @@ std::vector<std::vector<double> > TimesSeriesDataset::getData() const {
     return data;
 }
 
+std::vector<int> TimesSeriesDataset::getLabel() const {
+    return label;
+}
+
 
 
 
