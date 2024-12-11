@@ -11,4 +11,6 @@ add_executable(TdFawazSerieTemp main.cpp
         src/StepGenerator.cpp
         headers/StepGenerator.h
         src/SinWaveGenerator.cpp
-        headers/SinWaveGenerator.h)
+        headers/SinWaveGenerator.h
+        src/TimesSeriesDataset.cpp
+        headers/TimesSeriesDataset.h)

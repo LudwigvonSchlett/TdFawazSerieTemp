@@ -12,13 +12,15 @@ class SinWaveGenerator: public TimeSeriesGenerator {
     public:
         SinWaveGenerator();
         SinWaveGenerator(int _seed);
-        SinWaveGenerator(double _alpha, double _omega, double _phi);
-        SinWaveGenerator(double _alpha, double _omega, double _phi, int _seed);
-
+        SinWaveGenerator(double _alpha, double _omega);
+        SinWaveGenerator(double _alpha, double _omega, int _seed);
 
         ~SinWaveGenerator() = default;
 
         std::vector<double> generateTimeSeries(int size) const override;
+
+        void setPhi(double _phi);
+        double getPhi() const;
 
     private:
         double alpha;

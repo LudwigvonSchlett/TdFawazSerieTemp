@@ -10,6 +10,12 @@ GaussianGenerator::GaussianGenerator():
 
 }
 
+GaussianGenerator::GaussianGenerator(int _seed):
+    GaussianGenerator(0.0, 1.0, _seed)
+{
+
+}
+
 GaussianGenerator::GaussianGenerator(const double _mean, const double _std):
     GaussianGenerator(_mean, _std, 0)
 {
