@@ -38,6 +38,10 @@ void TimesSeriesDataset::addTimeSeries(const std::vector<double>& _series, int _
 
     std::vector<double> newSeries = _series;
 
+    if (!isTrain) {
+        throw std::invalid_argument("Testing data can't be labeled");
+    }
+
     // Normalize if z-normalize is enabled
     if (znormalize) {
         newSeries = znormalizeSeries(_series);
@@ -56,12 +60,24 @@ void TimesSeriesDataset::addTimeSeries(const std::vector<double>& _series, int _
 
 void TimesSeriesDataset::addTimeSeries(const std::vector<double>& _series) {
 
-    int newLabel = 0;
-    while (std::find(label.begin(), label.end(), newLabel) != label.end()) {
-        newLabel++;
+    std::vector<double> newSeries = _series;
+
+    if (isTrain) {
+        throw std::invalid_argument("Training data must be labeled");
     }
 
-    addTimeSeries(_series, newLabel);
+    // Normalize if z-normalize is enabled
+    if (znormalize) {
+        newSeries = znormalizeSeries(_series);
+    }
+
+    // Optionally enforce maxLength
+    if (newSeries.size() > static_cast<size_t>(maxLength)) {
+        newSeries.resize(maxLength);
+    }
+
+    data.push_back(newSeries);
+    numberOfSamples++;
 
 }
 

@@ -23,6 +23,8 @@ class TimeSeriesGenerator {
 
         virtual std::vector<double> generateTimeSeries(int size) const = 0;
         static void printTimeSeries(const std::vector<double>& timeSeries);
+        static double euclideanDistance(const std::vector<double>& x, const std::vector<double>& y);
+        static double dtw(const std::vector<double>& x, const std::vector<double>& y);
 
     protected:
         int seed;

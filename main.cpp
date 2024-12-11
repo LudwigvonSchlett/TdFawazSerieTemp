@@ -30,6 +30,13 @@ int main() {
     sw.setPhi(M_PI/2);
     std::vector<double> series6 = sw.generateTimeSeries(20);
 
+    std::vector<double> series7 = g.generateTimeSeries(20);
+
+    std::vector<double> series8 = s.generateTimeSeries(20);
+
+    sw.setPhi(3*M_PI/4);
+    std::vector<double> series9 = sw.generateTimeSeries(20);
+
     std::cout<<"series1: "<<series1.size()<< std::endl;
     TimeSeriesGenerator::printTimeSeries(series1);
     std::cout << std::endl;
@@ -54,6 +61,18 @@ int main() {
     TimeSeriesGenerator::printTimeSeries(series6);
     std::cout << std::endl;
 
+    std::cout << "series7: "<<series7.size()<< std::endl;
+    TimeSeriesGenerator::printTimeSeries(series7);
+    std::cout << std::endl;
+
+    std::cout << "series8: "<<series8.size()<< std::endl;
+    TimeSeriesGenerator::printTimeSeries(series8);
+    std::cout << std::endl;
+
+    std::cout << "series9: "<<series9.size()<< std::endl;
+    TimeSeriesGenerator::printTimeSeries(series9);
+    std::cout << std::endl;
+
     TimesSeriesDataset trainData(false, true), testData(false, false);
 
     trainData.addTimeSeries(series1, 0);
@@ -67,6 +86,12 @@ int main() {
     ground_truth.push_back(0);
     ground_truth.push_back(1);
     ground_truth.push_back(2);
+
+    testData.addTimeSeries(series7);
+    testData.addTimeSeries(series8);
+    testData.addTimeSeries(series9);
+
+
 
     return 0;
 }
