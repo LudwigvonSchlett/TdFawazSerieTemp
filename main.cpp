@@ -4,6 +4,7 @@
 #include "headers/TimeSeriesGenerator.h"
 #include "headers/GaussianGenerator.h"
 #include "headers/StepGenerator.h"
+#include "headers/SinWaveGenerator.h"
 
 
 int main() {
@@ -12,6 +13,8 @@ int main() {
 
     StepGenerator s = StepGenerator(7531);
 
+    SinWaveGenerator sw = SinWaveGenerator(2, 0.3, 0,4509);
+
     std::vector<double> series1 = g.generateTimeSeries(20);
 
     std::vector<double> series2 = g.generateTimeSeries(20);
@@ -19,6 +22,8 @@ int main() {
     std::vector<double> series3 = s.generateTimeSeries(20);
 
     std::vector<double> series4 = s.generateTimeSeries(20);
+
+    std::vector<double> series5 = sw.generateTimeSeries(20);
 
     std::cout<<"series1: "<<series1.size()<< std::endl;
     TimeSeriesGenerator::printTimeSeries(series1);
@@ -36,6 +41,9 @@ int main() {
     TimeSeriesGenerator::printTimeSeries(series4);
     std::cout << std::endl;
 
+    std::cout << "series5: "<<series5.size()<< std::endl;
+    TimeSeriesGenerator::printTimeSeries(series5);
+    std::cout << std::endl;
 
     return 0;
 }

@@ -13,6 +13,7 @@ class GaussianGenerator: public TimeSeriesGenerator {
 
     public:
         GaussianGenerator();
+        GaussianGenerator(int _seed);
         GaussianGenerator(double _mean, double _std);
         GaussianGenerator(double _mean, double _std, int _seed);
 

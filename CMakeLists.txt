@@ -9,4 +9,6 @@ add_executable(TdFawazSerieTemp main.cpp
         src/GaussianGenerator.cpp
         headers/GaussianGenerator.h
         src/StepGenerator.cpp
-        headers/StepGenerator.h)
+        headers/StepGenerator.h
+        src/SinWaveGenerator.cpp
+        headers/SinWaveGenerator.h)

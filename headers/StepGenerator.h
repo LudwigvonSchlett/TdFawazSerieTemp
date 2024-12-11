@@ -13,6 +13,7 @@ class StepGenerator: public TimeSeriesGenerator{
     public:
         StepGenerator();
         StepGenerator(int _seed);
+
         ~StepGenerator() = default;
 
         std::vector<double> generateTimeSeries(int size) const override;
