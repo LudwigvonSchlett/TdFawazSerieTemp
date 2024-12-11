@@ -17,7 +17,6 @@ KNN::KNN(int _k, std::string _similarity_measure):
 
 }
 
-
 double KNN::evaluate(TimesSeriesDataset &trainDataset, TimesSeriesDataset &testDataset, std::vector<int> &groundTruth) const {
     const auto& trainData = trainDataset.getData();
     const auto& testData = testDataset.getData();
@@ -32,9 +31,8 @@ double KNN::evaluate(TimesSeriesDataset &trainDataset, TimesSeriesDataset &testD
     for (size_t i = 0; i < testData.size(); ++i) {
         const auto& testSeries = testData[i];
 
-        // Initialize variables for finding the nearest neighbor
-        double minDistance = std::numeric_limits<double>::infinity();
-        int nearestNeighborLabel = -1;
+        // Initialize a vector to store the distances to each training series
+        std::vector<std::pair<double, int>> distances;
 
         // Compute distance to all training series
         for (size_t j = 0; j < trainData.size(); ++j) {
@@ -49,15 +47,31 @@ double KNN::evaluate(TimesSeriesDataset &trainDataset, TimesSeriesDataset &testD
                 throw std::invalid_argument("Unsupported similarity measure: " + similarity_measure);
             }
 
-            // Update the nearest neighbor if this distance is smaller
-            if (distance < minDistance) {
-                minDistance = distance;
-                nearestNeighborLabel = trainLabels[j];
+            distances.push_back({distance, trainLabels[j]});
+        }
+
+        // Sort the distances in ascending order
+        std::sort(distances.begin(), distances.end());
+
+        // Find the most frequent label among the k nearest neighbors
+        std::unordered_map<int, int> labelCount;
+        for (int j = 0; j < k; ++j) {
+            int label = distances[j].second;
+            labelCount[label]++;
+        }
+
+        // Find the label with the highest count
+        int predictedLabel = -1;
+        int maxCount = -1;
+        for (const auto& pair : labelCount) {
+            if (pair.second > maxCount) {
+                maxCount = pair.second;
+                predictedLabel = pair.first;
             }
         }
 
         // Compare with ground truth
-        if (nearestNeighborLabel == groundTruth[i]) {
+        if (predictedLabel == groundTruth[i]) {
             correctPredictions++;
         }
     }

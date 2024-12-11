@@ -5,8 +5,11 @@
 #ifndef KNN_H
 #define KNN_H
 #include <string>
-#include "TimesSeriesDataset.h"
+#include <unordered_map>
+#include <vector>
+#include <algorithm>
 
+#include "TimesSeriesDataset.h"
 
 class KNN {
 
