@@ -24,6 +24,8 @@ class TimesSeriesDataset {
 
         std::vector<double> znormalizeSeries(const std::vector<double>& _series) const;
 
+        std::vector<std::vector<double>> getData() const;
+
     private:
         bool znormalize;
         bool isTrain;

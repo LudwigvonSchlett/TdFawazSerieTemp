@@ -13,4 +13,6 @@ add_executable(TdFawazSerieTemp main.cpp
         src/SinWaveGenerator.cpp
         headers/SinWaveGenerator.h
         src/TimesSeriesDataset.cpp
-        headers/TimesSeriesDataset.h)
+        headers/TimesSeriesDataset.h
+        src/KNN.cpp
+        headers/KNN.h)

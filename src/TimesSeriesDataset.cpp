@@ -81,6 +81,11 @@ void TimesSeriesDataset::addTimeSeries(const std::vector<double>& _series) {
 
 }
 
+std::vector<std::vector<double> > TimesSeriesDataset::getData() const {
+    return data;
+}
+
+
 
 
 
