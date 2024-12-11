@@ -4,8 +4,6 @@
 
 #include "../headers/GaussianGenerator.h"
 
-#include <cmath>
-
 GaussianGenerator::GaussianGenerator():
     GaussianGenerator(0.0, 1.0)
 {
@@ -13,7 +11,7 @@ GaussianGenerator::GaussianGenerator():
 }
 
 GaussianGenerator::GaussianGenerator(const double _mean, const double _std):
-    TimeSeriesGenerator(0), mean(_mean), std(_std)
+    GaussianGenerator(_mean, _std, 0)
 {
 
 }
@@ -53,6 +51,10 @@ std::vector<double> GaussianGenerator::generateTimeSeries(int size) const{
     std::vector<double> series;
 
     std::uniform_real_distribution<double> dist(0.0, 1.0);
+
+    if (size == 0) {
+        return series;
+    }
 
     for (int i = 0; i < size/2 ; i ++) {
 

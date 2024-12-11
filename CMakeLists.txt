@@ -7,4 +7,6 @@ add_executable(TdFawazSerieTemp main.cpp
         src/TimeSeriesGenerator.cpp
         headers/TimeSeriesGenerator.h
         src/GaussianGenerator.cpp
-        headers/GaussianGenerator.h)
+        headers/GaussianGenerator.h
+        src/StepGenerator.cpp
+        headers/StepGenerator.h)

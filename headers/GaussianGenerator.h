@@ -5,8 +5,9 @@
 #ifndef GAUSSIANGENERATOR_H
 #define GAUSSIANGENERATOR_H
 
-#include "TimeSeriesGenerator.h"
+#include <cmath>
 
+#include "TimeSeriesGenerator.h"
 
 class GaussianGenerator: public TimeSeriesGenerator {
 

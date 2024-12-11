@@ -4,8 +4,10 @@
 
 #ifndef TIMESERIESGENERATOR_H
 #define TIMESERIESGENERATOR_H
+
 #include <random>
 #include <vector>
+#include <iostream>
 
 
 class TimeSeriesGenerator {
@@ -24,7 +26,6 @@ class TimeSeriesGenerator {
 
     protected:
         int seed;
-
         mutable std::mt19937 rng;
 
 

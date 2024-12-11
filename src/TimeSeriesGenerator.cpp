@@ -4,7 +4,6 @@
 
 #include "../headers/TimeSeriesGenerator.h"
 
-#include <iostream>
 
 TimeSeriesGenerator::TimeSeriesGenerator():
     TimeSeriesGenerator(0)
